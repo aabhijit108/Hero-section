@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+  }
+
+  .slider-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    animation: slideShow 25s infinite;
+  }
+
+  .slide:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .slide:nth-child(2) {
+    animation-delay: 5s;
+  }
+
+  .slide:nth-child(3) {
+    animation-delay: 10s;
+  }
+
+  .slide:nth-child(4) {
+    animation-delay: 15s;
+  }
+
+  .slide:nth-child(5) {
+    animation-delay: 20s;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 15%;
+    left: 20%;
+    color: white;
+    max-width: 600px;
+    z-index: 1;
+    transform: translateY(30px);
+    opacity: 0;
+    padding: 20px;
+    animation: captionShow 25s infinite;
+  }
+
+  /* Caption animation delays to match slides */
+  .slide:nth-child(1) .caption {
+    animation-delay: 0s;
+  }
+  .slide:nth-child(2) .caption {
+    animation-delay: 5s;
+  }
+  .slide:nth-child(3) .caption {
+    animation-delay: 10s;
+  }
+  .slide:nth-child(4) .caption {
+    animation-delay: 15s;
+  }
+  .slide:nth-child(5) .caption {
+    animation-delay: 20s;
+  }
+
+  .caption h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .caption p {
+    font-size: 1.2rem;
+  }
+
+  /* Animation keyframes */
+  @keyframes slideShow {
+    0% {
+      opacity: 0;
+    }
+    4% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 1;
+    }
+    24% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes captionShow {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+      }
+      4% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      20% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      24% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+      }
+    }
+
+  /* Navigation dots - CSS only */
+  .dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    animation: dotPulse 25s infinite;
+  }
+
+  .dot:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .dot:nth-child(2) {
+    animation-delay: 5s;
+  }
+
+  .dot:nth-child(3) {
+    animation-delay: 10s;
+  }
+
+  .dot:nth-child(4) {
+    animation-delay: 15s;
+  }
+
+  .dot:nth-child(5) {
+    animation-delay: 20s;
+  }
+
+  @keyframes dotPulse {
+    0% {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      4% {
+        background: white;
+      }
+      20% {
+        background: white;
+      }
+      24% {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      100% {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .caption {
+      max-width: 80%;
+      bottom: 10%;
+      padding: 15px;
+    }
+
+    .caption h2 {
+      font-size: 1.8rem;
+    }
+
+    .caption p {
+      font-size: 1rem;
+    }
+    
+    .dots {
+      bottom: 20px;
+    }
+  }
